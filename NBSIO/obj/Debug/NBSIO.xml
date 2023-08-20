@@ -1,0 +1,383 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+NBSIO
+</name>
+</assembly>
+<members>
+<member name="T:NBSIO.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:NBSIO.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:NBSIO.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:NBSIO.NBSFile">
+ <summary>
+ 用于表示NBS文件以供读取或修改
+ </summary>
+</member>
+<member name="P:NBSIO.NBSFile.Version">
+ <summary>
+ NBS文件的版本
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.VanillaInstrumentCount">
+ <summary>
+ 获取NBS文件中包含原版乐器的数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.Songlength">
+ <summary>
+ 获取歌曲长度
+ 单位：tick
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.LayerCount">
+ <summary>
+ 获取NBS文件中音轨的数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.SongName">
+ <summary>
+ 获取或设置歌曲名称
+ 由于NBS文件的特殊情况，遇到非ASCii字符此属性将会被清空
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.Author">
+ <summary>
+ 获取或设置作者名称
+ 由于NBS文件的特殊情况，遇到非ASCii字符此属性将会被清空
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.OriginalAuthor">
+ <summary>
+ 获取或设置原始作者名称
+ 由于NBS文件的特殊情况，遇到非ASCii字符此属性将会被清空
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.Description">
+ <summary>
+ 获取或设置歌曲描述
+ 由于NBS文件的特殊情况，遇到非ASCii字符此属性将会被清空
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.Tempo">
+ <summary>
+ 获取或设置歌曲的运行速度
+ 请注意，此数值为速度乘以100的结果
+ 示例：1000代表10tick/s
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.AutoSaving">
+ <summary>
+ 表示歌曲是否会自动保存（已弃用）
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.AutoSavingDuration">
+ <summary>
+ 表示歌曲每次自动保存的长度（已弃用）
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.TimeSignature">
+ <summary>
+ 获取或设置歌曲的拍号
+ 范围为2到8
+ 示例：3表示3/4拍，4表示4/4拍
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.MinuteSpent">
+ <summary>
+ 获取或设置此NBS文件的制作时长
+ 单位：分钟
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.LeftClickTimes">
+ <summary>
+ 获取或设置制作此NBS文件时左键的点击次数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.RightClickTimes">
+ <summary>
+ 获取或设置制作此NBS文件时右键的点击次数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.NoteBlocksAdded">
+ <summary>
+ 获取或设置制作此NBS文件时添加的音符数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.NoteBlocksRemoved">
+ <summary>
+ 获取或设置制作此NBS文件时删除的音符数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.MIDIName">
+ <summary>
+ 获取或设置此NBS文件是从什么MIDI文件导入的（如果有）
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.IsLooping">
+ <summary>
+ 获取或设置制作此NBS文件是否开启了循环模式
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.LoopTimes">
+ <summary>
+ 获取或设置最大循环次数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.NBSFile.LoopStartTick">
+ <summary>
+ 获取或设置NBS文件的循环起始点
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:NBSIO.NBSFile.Layers">
+ <summary>
+ 用于表示NBS文件中的音轨
+ </summary>
+</member>
+<member name="M:NBSIO.NBSFile.#ctor">
+ <summary>
+ 创建空白的NBSFile实例以供操作
+ </summary>
+</member>
+<member name="M:NBSIO.NBSFile.#ctor(System.String)">
+ <summary>
+ 通过现有的NBS文件创建新的NBSFile实例
+ </summary>
+ <param name="Location">NBS文件的路径</param>
+</member>
+<member name="M:NBSIO.NBSFile.Save(System.String)">
+ <summary>
+ 将NBSFile实例储存为NBS文件
+ </summary>
+ <param name="Path">需要保存的目标文件</param>
+</member>
+<member name="T:NBSIO.Note">
+ <summary>
+ 用于表示NBS的音符
+ </summary>
+</member>
+<member name="P:NBSIO.Note.Tick">
+ <summary>
+ 获取或设置音符出现的时间
+ 单位：tick
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Note.Instrument">
+ <summary>
+ 获取或设置音符的乐器编号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Note.NoteKey">
+ <summary>
+ 获取或设置音符的音高
+ 范围为0-87
+ 其中33-57为Minecraft指定的两个八度
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Note.NoteVelocity">
+ <summary>
+ 获取或设置音符的力度
+ 范围为0-100
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Note.NotePan">
+ <summary>
+ 获取或设置音符的发声位置
+ 范围为0-200
+ 0为右侧2个方块，100为正中央，200为左侧两个方块
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Note.NotePitch">
+ <summary>
+ 获取或设置音符的细微音高
+ 范围为-1200到1200
+ 每2个半音之间相差100
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:NBSIO.Note.#ctor(System.Int16,NBSIO.Instruments,System.Byte,System.Byte,System.Byte,System.Int16)">
+ <summary>
+ 创建新的Note实例
+ </summary>
+ <param name="Tick">音符出现的时间</param>
+ <param name="Instrument">音符的乐器编号</param>
+ <param name="NoteKey">音符的音高</param>
+ <param name="Notevelocity">音符的力度</param>
+ <param name="NotePan">音符的发声位置</param>
+ <param name="NotePitch">音符的细微音高</param>
+</member>
+<member name="T:NBSIO.Layer">
+ <summary>
+ 用于表示NBS的音轨
+ </summary>
+</member>
+<member name="F:NBSIO.Layer.Notes">
+ <summary>
+ 表示此音轨中包含的音符
+ </summary>
+</member>
+<member name="P:NBSIO.Layer.LayerName">
+ <summary>
+ 获取或设置音轨的名称
+ 由于NBS文件的特殊情况，遇到非ASCii字符此属性将会被清空
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Layer.Locked">
+ <summary>
+ 获取或设置音轨是否处于锁定状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Layer.Volume">
+ <summary>
+ 获取或设置音轨的音量
+ 范围为0-100
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:NBSIO.Layer.Stereo">
+ <summary>
+ 获取或设置音轨的声道平衡
+ 范围为0-200
+ 0为右侧2个方块，100为正中央，200为左侧两个方块
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:NBSIO.Layer.#ctor">
+ <summary>
+ 创建新的Layer实例
+ </summary>
+</member>
+<member name="M:NBSIO.Layer.Arrange">
+ <summary>
+ 整理音轨
+ </summary>
+</member>
+<member name="T:NBSIO.Instruments">
+ <summary>
+ 表示原版音符盒音色列表
+ 命名使用Minecraft文件名
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.harp2">
+ <summary>
+ 竖琴，泥土音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.bassattack">
+ <summary>
+ 贝司，木板音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.bd">
+ <summary>
+ 大鼓，石头音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.snare">
+ <summary>
+ 小鼓，沙子音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.hat">
+ <summary>
+ 鼓沿，玻璃音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.guitar">
+ <summary>
+ 吉他，羊毛音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.flute">
+ <summary>
+ 竖笛，粘土音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.bell">
+ <summary>
+ 铃铛，金块音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.icechime">
+ <summary>
+ 管钟，浮冰音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.xylobone">
+ <summary>
+ 木琴，骨块音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.iron_xylophone">
+ <summary>
+ 钢片琴，铁块音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.cow_bell">
+ <summary>
+ 牛铃，灵魂沙音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.didgeridoo">
+ <summary>
+ 大管，南瓜音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.bit">
+ <summary>
+ 方波，绿宝石块音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.banjo">
+ <summary>
+ 班卓，干草块音色
+ </summary>
+</member>
+<member name="F:NBSIO.Instruments.pling">
+ <summary>
+ 电钢琴，萤石块音色
+ </summary>
+</member>
+</members>
+</doc>

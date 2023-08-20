@@ -1,0 +1,9 @@
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\bin\Debug\NBSIO.dll
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\bin\Debug\NBSIO.pdb
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\bin\Debug\NBSIO.xml
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.Resources.resources
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.vbproj.GenerateResource.cache
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.vbproj.CoreCompileInputs.cache
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.dll
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.xml
+C:\Users\AGANG\source\repos\NBSIO\NBSIO\obj\Debug\NBSIO.pdb
